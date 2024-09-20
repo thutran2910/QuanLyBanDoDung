@@ -33,8 +33,7 @@ SECRET_KEY = 'django-insecure-9^0yw)g7iz7i%k^kataivsq%iu1ez4!em=7%rrwy#=9$$5a3jx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-ALLOWED_HOSTS = ['192.168.0.104']
+ALLOWED_HOSTS = ['192.168.0.104', 'localhost']
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Add your frontend URL here
@@ -62,11 +61,11 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -77,12 +76,12 @@ AUTH_USER_MODEL = 'dodung.User'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.templates.context_processors.debug',
+                'django.templates.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
@@ -102,7 +101,8 @@ DATABASES = {
     'NAME': 'quanlydodung',
     'USER': 'root',
     'PASSWORD': '29102003',
-    'HOST': ''
+    'HOST': 'localhost',
+    'PORT': '3306',
     }
 }
 

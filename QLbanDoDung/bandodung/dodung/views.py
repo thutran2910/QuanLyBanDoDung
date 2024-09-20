@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import viewsets, generics, decorators, status, permissions
@@ -166,3 +165,5 @@ class UserOrderListView(viewsets.ViewSet):
         serializer = OrderSerializer(orders, many=True)
         return Response(serializer.data)
 
+def thongke(request):
+    return render(request, 'admin/thongke.html')

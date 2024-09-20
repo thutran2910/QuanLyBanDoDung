@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import path, include
 from . import views
 from .admin import admin_site
@@ -18,8 +19,9 @@ router.register('electronicnews', views.ElectronicNewsViewSet, basename='electro
 router.register('review', views.ReviewViewSet, basename='review')
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin_site.urls),
-    path('discounted-products/', DiscountedProductListView.as_view(), name='discounted-products-list'),
-    path('orderlist/', views.UserOrderListView.as_view({'get': 'list'}), name='user-order-list'),
+    # path('', include(router.urls)),
+    # path('admin/', admin_site.urls),
+    # path('discounted-products/', DiscountedProductListView.as_view(), name='discounted-products-list'),
+    # path('orderlist/', views.UserOrderListView.as_view({'get': 'list'}), name='user-order-list'),
+    path('', views.thongke),
 ]
